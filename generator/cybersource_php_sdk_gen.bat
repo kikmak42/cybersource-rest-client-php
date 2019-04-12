@@ -62,7 +62,7 @@ git checkout ..\README.md
 
 git checkout ..\composer.json
 
-pause
+
 
 
 
