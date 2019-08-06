@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -54,7 +54,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
+        'searchId' => 'string',
         'save' => 'bool',
         'name' => 'string',
         'timezone' => 'string',
@@ -64,6 +64,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
         'sort' => 'string',
         'count' => 'int',
         'totalCount' => 'int',
+        'status' => 'string',
         'submitTimeUtc' => 'string',
         'embedded' => '\CyberSource\Model\TssV2TransactionsPost201ResponseEmbedded',
         'links' => '\CyberSource\Model\PtsV2PaymentsReversalsPost201ResponseLinks'
@@ -74,7 +75,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
+        'searchId' => null,
         'save' => null,
         'name' => null,
         'timezone' => null,
@@ -84,6 +85,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
         'sort' => null,
         'count' => null,
         'totalCount' => null,
+        'status' => null,
         'submitTimeUtc' => null,
         'embedded' => null,
         'links' => null
@@ -104,7 +106,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
+        'searchId' => 'searchId',
         'save' => 'save',
         'name' => 'name',
         'timezone' => 'timezone',
@@ -114,6 +116,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
         'sort' => 'sort',
         'count' => 'count',
         'totalCount' => 'totalCount',
+        'status' => 'status',
         'submitTimeUtc' => 'submitTimeUtc',
         'embedded' => '_embedded',
         'links' => '_links'
@@ -125,7 +128,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
+        'searchId' => 'setSearchId',
         'save' => 'setSave',
         'name' => 'setName',
         'timezone' => 'setTimezone',
@@ -135,6 +138,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
         'sort' => 'setSort',
         'count' => 'setCount',
         'totalCount' => 'setTotalCount',
+        'status' => 'setStatus',
         'submitTimeUtc' => 'setSubmitTimeUtc',
         'embedded' => 'setEmbedded',
         'links' => 'setLinks'
@@ -146,7 +150,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
+        'searchId' => 'getSearchId',
         'save' => 'getSave',
         'name' => 'getName',
         'timezone' => 'getTimezone',
@@ -156,6 +160,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
         'sort' => 'getSort',
         'count' => 'getCount',
         'totalCount' => 'getTotalCount',
+        'status' => 'getStatus',
         'submitTimeUtc' => 'getSubmitTimeUtc',
         'embedded' => 'getEmbedded',
         'links' => 'getLinks'
@@ -192,7 +197,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['searchId'] = isset($data['searchId']) ? $data['searchId'] : null;
         $this->container['save'] = isset($data['save']) ? $data['save'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
@@ -202,6 +207,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
         $this->container['sort'] = isset($data['sort']) ? $data['sort'] : null;
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['totalCount'] = isset($data['totalCount']) ? $data['totalCount'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['submitTimeUtc'] = isset($data['submitTimeUtc']) ? $data['submitTimeUtc'] : null;
         $this->container['embedded'] = isset($data['embedded']) ? $data['embedded'] : null;
         $this->container['links'] = isset($data['links']) ? $data['links'] : null;
@@ -216,8 +222,8 @@ class TssV2TransactionsPost201Response implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if (!is_null($this->container['id']) && (strlen($this->container['id']) > 26)) {
-            $invalid_properties[] = "invalid value for 'id', the character length must be smaller than or equal to 26.";
+        if (!is_null($this->container['searchId']) && (strlen($this->container['searchId']) > 60)) {
+            $invalid_properties[] = "invalid value for 'searchId', the character length must be smaller than or equal to 60.";
         }
 
         return $invalid_properties;
@@ -232,7 +238,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['id']) > 26) {
+        if (strlen($this->container['searchId']) > 60) {
             return false;
         }
         return true;
@@ -240,26 +246,26 @@ class TssV2TransactionsPost201Response implements ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets searchId
      * @return string
      */
-    public function getId()
+    public function getSearchId()
     {
-        return $this->container['id'];
+        return $this->container['searchId'];
     }
 
     /**
-     * Sets id
-     * @param string $id An unique identification number assigned by CyberSource to identify the submitted request.
+     * Sets searchId
+     * @param string $searchId An unique identification number assigned by CyberSource to identify each Search request.
      * @return $this
      */
-    public function setId($id)
+    public function setSearchId($searchId)
     {
-        if (!is_null($id) && (strlen($id) > 26)) {
-            throw new \InvalidArgumentException('invalid length for $id when calling TssV2TransactionsPost201Response., must be smaller than or equal to 26.');
+        if (!is_null($searchId) && (strlen($searchId) > 60)) {
+            throw new \InvalidArgumentException('invalid length for $searchId when calling TssV2TransactionsPost201Response., must be smaller than or equal to 60.');
         }
 
-        $this->container['id'] = $id;
+        $this->container['searchId'] = $searchId;
 
         return $this;
     }
@@ -317,7 +323,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
 
     /**
      * Sets timezone
-     * @param string $timezone Time Zone.
+     * @param string $timezone Time Zone in ISO format.
      * @return $this
      */
     public function setTimezone($timezone)
@@ -380,7 +386,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
 
     /**
      * Sets limit
-     * @param int $limit limit on number of results.
+     * @param int $limit Limit on number of results.
      * @return $this
      */
     public function setLimit($limit)
@@ -443,12 +449,33 @@ class TssV2TransactionsPost201Response implements ArrayAccess
 
     /**
      * Sets totalCount
-     * @param int $totalCount total number of results.
+     * @param int $totalCount Total number of results.
      * @return $this
      */
     public function setTotalCount($totalCount)
     {
         $this->container['totalCount'] = $totalCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param string $status The status of the submitted transaction.
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }
@@ -464,7 +491,7 @@ class TssV2TransactionsPost201Response implements ArrayAccess
 
     /**
      * Sets submitTimeUtc
-     * @param string $submitTimeUtc Time of request in UTC. `Format: YYYY-MM-DDThh:mm:ssZ`  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC.
+     * @param string $submitTimeUtc Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` Example `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC.
      * @return $this
      */
     public function setSubmitTimeUtc($submitTimeUtc)

@@ -10,9 +10,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -90,7 +90,7 @@ class UserManagementApi
     /**
      * Operation getUsers
      *
-     * Get user based on organization Id, username, permission and role
+     * Get user information
      *
      * @param string $organizationId This is the orgId of the organization which the user belongs to. (optional)
      * @param string $userName User ID of the user you want to get details on. (optional)
@@ -108,7 +108,7 @@ class UserManagementApi
     /**
      * Operation getUsersWithHttpInfo
      *
-     * Get user based on organization Id, username, permission and role
+     * Get user information
      *
      * @param string $organizationId This is the orgId of the organization which the user belongs to. (optional)
      * @param string $userName User ID of the user you want to get details on. (optional)
@@ -174,7 +174,7 @@ class UserManagementApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\CyberSource\Model\UmsV1UsersGet400Response', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\CyberSource\Model\PtsV2PaymentsRefundPost400Response', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

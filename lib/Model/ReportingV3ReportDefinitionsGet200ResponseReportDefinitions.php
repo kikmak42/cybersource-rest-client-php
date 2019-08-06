@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -136,22 +136,8 @@ class ReportingV3ReportDefinitionsGet200ResponseReportDefinitions implements Arr
         return self::$getters;
     }
 
-    const SUPPORTED_FORMATS_APPLICATIONXML = 'application/xml';
-    const SUPPORTED_FORMATS_TEXTCSV = 'text/csv';const SUPPORTED_FORMATS_JSON ='application/json';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getSupportedFormatsAllowableValues()
-    {
-        return [
-            self::SUPPORTED_FORMATS_APPLICATIONXML,
-            self::SUPPORTED_FORMATS_TEXTCSV,self::SUPPORTED_FORMATS_JSON,
-        ];
-    }
     
 
     /**
@@ -277,15 +263,6 @@ class ReportingV3ReportDefinitionsGet200ResponseReportDefinitions implements Arr
      */
     public function setSupportedFormats($supportedFormats)
     {
-        $allowed_values = $this->getSupportedFormatsAllowableValues();foreach ($allowed_values as &$value) {
-        if (!is_null($supportedFormats) && array_diff($supportedFormats, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'supportedFormats', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         } $this->container['supportedFormats'] = $supportedFormats;
 
         return $this;

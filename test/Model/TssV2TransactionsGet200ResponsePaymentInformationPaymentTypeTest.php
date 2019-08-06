@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -85,23 +85,9 @@ class TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeTest extends \
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "subTypeName"
      */
-    public function testPropertyType()
-    {
-    }
-
-    /**
-     * Test attribute "subType"
-     */
-    public function testPropertySubType()
-    {
-    }
-
-    /**
-     * Test attribute "method"
-     */
-    public function testPropertyMethod()
+    public function testPropertySubTypeName()
     {
     }
 
@@ -113,16 +99,16 @@ class TssV2TransactionsGet200ResponsePaymentInformationPaymentTypeTest extends \
     }
 
     /**
-     * Test attribute "fundingSourceAffiliation"
+     * Test attribute "method"
      */
-    public function testPropertyFundingSourceAffiliation()
+    public function testPropertyMethod()
     {
     }
 
     /**
-     * Test attribute "credential"
+     * Test attribute "authenticationMethod"
      */
-    public function testPropertyCredential()
+    public function testPropertyAuthenticationMethod()
     {
     }
 }
