@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -198,7 +198,7 @@ class Ptsv2paymentsidreversalsReversalInformation implements ArrayAccess
 
     /**
      * Sets reason
-     * @param string $reason Reason for the authorization reversal. Possible value:   - 34: Suspected fraud  CyberSource ignores this field for processors that do not support this value.
+     * @param string $reason Reason for the authorization reversal. Possible value:   - `34`: Suspected fraud  CyberSource ignores this field for processors that do not support this value.  For details, see `auth_reversal_reason` field description in [Credit Card Services Using the SCMP API.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)
      * @return $this
      */
     public function setReason($reason)

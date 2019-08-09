@@ -1,6 +1,6 @@
 <?php
 /**
- * TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response
+ * TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response
  *
  * PHP version 5
  *
@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -32,14 +32,14 @@ namespace CyberSource\Model;
 use \ArrayAccess;
 
 /**
- * TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response Class Doc Comment
+ * TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response Class Doc Comment
  *
  * @category    Class
  * @package     CyberSource
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements ArrayAccess
+class TmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,20 +47,20 @@ class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements Arra
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'tmsV1InstrumentidentifiersPaymentinstrumentsGet200Response';
+    protected static $swaggerModelName = 'tmsV1InstrumentIdentifiersPaymentInstrumentsGet200Response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'links' => '\CyberSource\Model\TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks',
+        'links' => '\CyberSource\Model\TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks',
         'object' => 'string',
         'offset' => 'string',
         'limit' => 'string',
         'count' => 'string',
         'total' => 'string',
-        'embedded' => 'object'
+        'embedded' => '\CyberSource\Model\TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbedded'
     ];
 
     /**
@@ -146,20 +146,8 @@ class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements Arra
         return self::$getters;
     }
 
-    const OBJECT_COLLECTION = 'collection';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_COLLECTION,
-        ];
-    }
     
 
     /**
@@ -192,14 +180,6 @@ class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements Arra
     {
         $invalid_properties = [];
 
-        $allowed_values = $this->getObjectAllowableValues();
-        if (!in_array($this->container['object'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'object', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         return $invalid_properties;
     }
 
@@ -212,17 +192,13 @@ class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements Arra
     public function valid()
     {
 
-        $allowed_values = $this->getObjectAllowableValues();
-        if (!in_array($this->container['object'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
      * Gets links
-     * @return \CyberSource\Model\TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks
+     * @return \CyberSource\Model\TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks
      */
     public function getLinks()
     {
@@ -231,7 +207,7 @@ class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements Arra
 
     /**
      * Sets links
-     * @param \CyberSource\Model\TmsV1InstrumentidentifiersPaymentinstrumentsGet200ResponseLinks $links
+     * @param \CyberSource\Model\TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseLinks $links
      * @return $this
      */
     public function setLinks($links)
@@ -252,20 +228,11 @@ class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements Arra
 
     /**
      * Sets object
-     * @param string $object Shows the response is a collection of objects.
+     * @param string $object 'Shows the response is a collection of objects.'  Valid values: - collection
      * @return $this
      */
     public function setObject($object)
     {
-        $allowed_values = $this->getObjectAllowableValues();
-        if (!is_null($object) && !in_array($object, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'object', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['object'] = $object;
 
         return $this;
@@ -357,7 +324,7 @@ class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements Arra
 
     /**
      * Gets embedded
-     * @return object
+     * @return \CyberSource\Model\TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbedded
      */
     public function getEmbedded()
     {
@@ -366,7 +333,7 @@ class TmsV1InstrumentidentifiersPaymentinstrumentsGet200Response implements Arra
 
     /**
      * Sets embedded
-     * @param object $embedded Array of Payment Instruments returned for the supplied Instrument Identifier.
+     * @param \CyberSource\Model\TmsV1InstrumentIdentifiersPaymentInstrumentsGet200ResponseEmbedded $embedded
      * @return $this
      */
     public function setEmbedded($embedded)

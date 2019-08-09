@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -92,9 +92,9 @@ class TssV2TransactionsGet200ResponseOrderInformationBillToTest extends \PHPUnit
     }
 
     /**
-     * Test attribute "middelName"
+     * Test attribute "middleName"
      */
-    public function testPropertyMiddelName()
+    public function testPropertyMiddleName()
     {
     }
 

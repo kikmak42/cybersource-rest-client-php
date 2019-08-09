@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -64,7 +64,7 @@ class RequestBody1 implements ArrayAccess
         'startTime' => 'string',
         'startDay' => 'int',
         'reportFilters' => 'map[string,string[]]',
-        'reportPreferences' => '\CyberSource\Model\ReportingV3ReportsIdGet200ResponseReportPreferences',
+        'reportPreferences' => '\CyberSource\Model\Reportingv3reportsReportPreferences',
         'groupName' => 'string'
     ];
 
@@ -171,38 +171,8 @@ class RequestBody1 implements ArrayAccess
         return self::$getters;
     }
 
-    const REPORT_MIME_TYPE_APPLICATIONXML = 'application/xml';
-    const REPORT_MIME_TYPE_TEXTCSV = 'text/csv';
-    const REPORT_FREQUENCY_DAILY = 'DAILY';
-    const REPORT_FREQUENCY_WEEKLY = 'WEEKLY';
-    const REPORT_FREQUENCY_MONTHLY = 'MONTHLY';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getReportMimeTypeAllowableValues()
-    {
-        return [
-            self::REPORT_MIME_TYPE_APPLICATIONXML,
-            self::REPORT_MIME_TYPE_TEXTCSV,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getReportFrequencyAllowableValues()
-    {
-        return [
-            self::REPORT_FREQUENCY_DAILY,
-            self::REPORT_FREQUENCY_WEEKLY,
-            self::REPORT_FREQUENCY_MONTHLY,
-        ];
-    }
     
 
     /**
@@ -265,25 +235,9 @@ class RequestBody1 implements ArrayAccess
         if ($this->container['reportMimeType'] === null) {
             $invalid_properties[] = "'reportMimeType' can't be null";
         }
-        $allowed_values = $this->getReportMimeTypeAllowableValues();
-        if (!in_array($this->container['reportMimeType'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'reportMimeType', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         if ($this->container['reportFrequency'] === null) {
             $invalid_properties[] = "'reportFrequency' can't be null";
         }
-        $allowed_values = $this->getReportFrequencyAllowableValues();
-        if (!in_array($this->container['reportFrequency'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'reportFrequency', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         if ($this->container['reportName'] === null) {
             $invalid_properties[] = "'reportName' can't be null";
         }
@@ -350,15 +304,7 @@ class RequestBody1 implements ArrayAccess
         if ($this->container['reportMimeType'] === null) {
             return false;
         }
-        $allowed_values = $this->getReportMimeTypeAllowableValues();
-        if (!in_array($this->container['reportMimeType'], $allowed_values)) {
-            return false;
-        }
         if ($this->container['reportFrequency'] === null) {
-            return false;
-        }
-        $allowed_values = $this->getReportFrequencyAllowableValues();
-        if (!in_array($this->container['reportFrequency'], $allowed_values)) {
             return false;
         }
         if ($this->container['reportName'] === null) {
@@ -481,20 +427,11 @@ class RequestBody1 implements ArrayAccess
 
     /**
      * Sets reportMimeType
-     * @param string $reportMimeType
+     * @param string $reportMimeType Valid values: - application/xml - text/csv
      * @return $this
      */
     public function setReportMimeType($reportMimeType)
     {
-        $allowed_values = $this->getReportMimeTypeAllowableValues();
-        if (!in_array($reportMimeType, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reportMimeType', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['reportMimeType'] = $reportMimeType;
 
         return $this;
@@ -511,20 +448,11 @@ class RequestBody1 implements ArrayAccess
 
     /**
      * Sets reportFrequency
-     * @param string $reportFrequency The frequency for which subscription is created.
+     * @param string $reportFrequency 'The frequency for which subscription is created.'  Valid values: - 'DAILY' - 'WEEKLY' - 'MONTHLY' - 'ADHOC'
      * @return $this
      */
     public function setReportFrequency($reportFrequency)
     {
-        $allowed_values = $this->getReportFrequencyAllowableValues();
-        if (!in_array($reportFrequency, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reportFrequency', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['reportFrequency'] = $reportFrequency;
 
         return $this;
@@ -655,7 +583,7 @@ class RequestBody1 implements ArrayAccess
 
     /**
      * Gets reportPreferences
-     * @return \CyberSource\Model\ReportingV3ReportsIdGet200ResponseReportPreferences
+     * @return \CyberSource\Model\Reportingv3reportsReportPreferences
      */
     public function getReportPreferences()
     {
@@ -664,7 +592,7 @@ class RequestBody1 implements ArrayAccess
 
     /**
      * Sets reportPreferences
-     * @param \CyberSource\Model\ReportingV3ReportsIdGet200ResponseReportPreferences $reportPreferences
+     * @param \CyberSource\Model\Reportingv3reportsReportPreferences $reportPreferences
      * @return $this
      */
     public function setReportPreferences($reportPreferences)

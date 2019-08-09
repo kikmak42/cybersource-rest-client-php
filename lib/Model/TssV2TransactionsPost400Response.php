@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -57,7 +57,7 @@ class TssV2TransactionsPost400Response implements ArrayAccess
         'submitTimeUtc' => 'string',
         'status' => 'string',
         'message' => 'string',
-        'details' => '\CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[]'
+        'details' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[]'
     ];
 
     /**
@@ -131,20 +131,8 @@ class TssV2TransactionsPost400Response implements ArrayAccess
         return self::$getters;
     }
 
-    const STATUS_REQUEST = 'INVALID_REQUEST';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_REQUEST,
-        ];
-    }
     
 
     /**
@@ -174,14 +162,6 @@ class TssV2TransactionsPost400Response implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = $this->getStatusAllowableValues();
-        if (!in_array($this->container['status'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         return $invalid_properties;
     }
 
@@ -194,10 +174,6 @@ class TssV2TransactionsPost400Response implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = $this->getStatusAllowableValues();
-        if (!in_array($this->container['status'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -213,7 +189,7 @@ class TssV2TransactionsPost400Response implements ArrayAccess
 
     /**
      * Sets submitTimeUtc
-     * @param string $submitTimeUtc Time of request in UTC. `Format: YYYY-MM-DDThh:mm:ssZ`  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC.
+     * @param string $submitTimeUtc Time of request in UTC. Format: `YYYY-MM-DDThh:mm:ssZ` Example `2016-08-11T22:47:57Z` equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The `T` separates the date and the time. The `Z` indicates UTC.
      * @return $this
      */
     public function setSubmitTimeUtc($submitTimeUtc)
@@ -234,20 +210,11 @@ class TssV2TransactionsPost400Response implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status The status of the submitted transaction.
+     * @param string $status The status of the submitted transaction.  Possible values:  - INVALID_REQUEST
      * @return $this
      */
     public function setStatus($status)
     {
-        $allowed_values = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['status'] = $status;
 
         return $this;
@@ -276,7 +243,7 @@ class TssV2TransactionsPost400Response implements ArrayAccess
 
     /**
      * Gets details
-     * @return \CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[]
+     * @return \CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[]
      */
     public function getDetails()
     {
@@ -285,7 +252,7 @@ class TssV2TransactionsPost400Response implements ArrayAccess
 
     /**
      * Sets details
-     * @param \CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[] $details
+     * @param \CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[] $details
      * @return $this
      */
     public function setDetails($details)

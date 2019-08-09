@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -144,8 +144,8 @@ class TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner impl
     {
         $invalid_properties = [];
 
-        if (!is_null($this->container['originalTransactionId']) && (strlen($this->container['originalTransactionId']) > 50)) {
-            $invalid_properties[] = "invalid value for 'originalTransactionId', the character length must be smaller than or equal to 50.";
+        if (!is_null($this->container['originalTransactionId']) && (strlen($this->container['originalTransactionId']) > 32)) {
+            $invalid_properties[] = "invalid value for 'originalTransactionId', the character length must be smaller than or equal to 32.";
         }
 
         return $invalid_properties;
@@ -160,7 +160,7 @@ class TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner impl
     public function valid()
     {
 
-        if (strlen($this->container['originalTransactionId']) > 50) {
+        if (strlen($this->container['originalTransactionId']) > 32) {
             return false;
         }
         return true;
@@ -178,13 +178,13 @@ class TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner impl
 
     /**
      * Sets originalTransactionId
-     * @param string $originalTransactionId Network transaction identifier (TID). You can use this value to identify a specific transaction when you are discussing the transaction with your processor. Not all processors provide this  value.
+     * @param string $originalTransactionId Value that links the previous transaction to the current follow-on request. This value is assigned by the client software that is installed on the POS terminal, which makes it available to the terminal’s software and to CyberSource. Therefore, you can use this value to reconcile transactions between CyberSource and the terminal’s software.  CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only on American Express Direct, FDC Nashville Global, and SIX.
      * @return $this
      */
     public function setOriginalTransactionId($originalTransactionId)
     {
-        if (!is_null($originalTransactionId) && (strlen($originalTransactionId) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $originalTransactionId when calling TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner., must be smaller than or equal to 50.');
+        if (!is_null($originalTransactionId) && (strlen($originalTransactionId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $originalTransactionId when calling TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner., must be smaller than or equal to 32.');
         }
 
         $this->container['originalTransactionId'] = $originalTransactionId;

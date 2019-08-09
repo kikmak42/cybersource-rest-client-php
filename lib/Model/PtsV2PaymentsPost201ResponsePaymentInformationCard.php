@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -144,10 +144,6 @@ class PtsV2PaymentsPost201ResponsePaymentInformationCard implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if (!is_null($this->container['suffix']) && (strlen($this->container['suffix']) > 4)) {
-            $invalid_properties[] = "invalid value for 'suffix', the character length must be smaller than or equal to 4.";
-        }
-
         return $invalid_properties;
     }
 
@@ -160,9 +156,6 @@ class PtsV2PaymentsPost201ResponsePaymentInformationCard implements ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['suffix']) > 4) {
-            return false;
-        }
         return true;
     }
 
@@ -178,15 +171,11 @@ class PtsV2PaymentsPost201ResponsePaymentInformationCard implements ArrayAccess
 
     /**
      * Sets suffix
-     * @param string $suffix Last four digits of the cardholder’s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder.
+     * @param string $suffix Last four digits of the cardholder’s account number. This field is returned only for tokenized transactions. You can use this value on the receipt that you give to the cardholder.  **Note** This field is returned only for CyberSource through VisaNet and FDC Nashville Global.  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCRB - Position: 85 - Field: American Express last 4 PAN return indicator.
      * @return $this
      */
     public function setSuffix($suffix)
     {
-        if (!is_null($suffix) && (strlen($suffix) > 4)) {
-            throw new \InvalidArgumentException('invalid length for $suffix when calling PtsV2PaymentsPost201ResponsePaymentInformationCard., must be smaller than or equal to 4.');
-        }
-
         $this->container['suffix'] = $suffix;
 
         return $this;

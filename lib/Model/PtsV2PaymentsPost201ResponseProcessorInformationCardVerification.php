@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -191,7 +191,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformationCardVerification implement
 
     /**
      * Sets resultCode
-     * @param string $resultCode CVN result code.
+     * @param string $resultCode CVN result code.  For details, see the `auth_cv_result` reply field description in the [Credit Card Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/CC_Svcs_SCMP_API/html/wwhelp/wwhimpl/js/html/wwhelp.htm)
      * @return $this
      */
     public function setResultCode($resultCode)
@@ -216,7 +216,7 @@ class PtsV2PaymentsPost201ResponseProcessorInformationCardVerification implement
 
     /**
      * Sets resultCodeRaw
-     * @param string $resultCodeRaw CVN result code sent directly from the processor. Returned only when the processor returns this value.  `Important` Do not use this field to evaluate the result of card verification. Use for debugging purposes only.
+     * @param string $resultCodeRaw CVN result code sent directly from the processor. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of card verification. Use for debugging purposes only.
      * @return $this
      */
     public function setResultCodeRaw($resultCodeRaw)

@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -78,9 +78,9 @@ class ErrorLinksTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "self"
+     * Test attribute "next"
      */
-    public function testPropertySelf()
+    public function testPropertyNext()
     {
     }
 
@@ -92,9 +92,9 @@ class ErrorLinksTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "next"
+     * Test attribute "self"
      */
-    public function testPropertyNext()
+    public function testPropertySelf()
     {
     }
 }

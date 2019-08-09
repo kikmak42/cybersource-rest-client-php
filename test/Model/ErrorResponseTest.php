@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -74,20 +74,6 @@ class ErrorResponseTest extends \PHPUnit_Framework_TestCase
      * Test "ErrorResponse"
      */
     public function testErrorResponse()
-    {
-    }
-
-    /**
-     * Test attribute "responseStatus"
-     */
-    public function testPropertyResponseStatus()
-    {
-    }
-
-    /**
-     * Test attribute "links"
-     */
-    public function testPropertyLinks()
     {
     }
 }

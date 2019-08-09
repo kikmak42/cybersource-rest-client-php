@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -58,7 +58,7 @@ class PtsV2PayoutsPost400Response implements ArrayAccess
         'status' => 'string',
         'reason' => 'string',
         'message' => 'string',
-        'details' => '\CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[]'
+        'details' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[]'
     ];
 
     /**
@@ -136,30 +136,8 @@ class PtsV2PayoutsPost400Response implements ArrayAccess
         return self::$getters;
     }
 
-    const REASON_MISSING_FIELD = 'MISSING_FIELD';
-    const REASON_INVALID_DATA = 'INVALID_DATA';
-    const REASON_DUPLICATE_REQUEST = 'DUPLICATE_REQUEST';
-    const REASON_INVALID_MERCHANT_CONFIGURATION = 'INVALID_MERCHANT_CONFIGURATION';
-    const REASON_INVALID_AMOUNT = 'INVALID_AMOUNT';
-    const REASON_DEBIT_CARD_USEAGE_EXCEEDD_LIMIT = 'DEBIT_CARD_USEAGE_EXCEEDD_LIMIT';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getReasonAllowableValues()
-    {
-        return [
-            self::REASON_MISSING_FIELD,
-            self::REASON_INVALID_DATA,
-            self::REASON_DUPLICATE_REQUEST,
-            self::REASON_INVALID_MERCHANT_CONFIGURATION,
-            self::REASON_INVALID_AMOUNT,
-            self::REASON_DEBIT_CARD_USEAGE_EXCEEDD_LIMIT,
-        ];
-    }
     
 
     /**
@@ -190,14 +168,6 @@ class PtsV2PayoutsPost400Response implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!in_array($this->container['reason'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'reason', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         return $invalid_properties;
     }
 
@@ -210,10 +180,6 @@ class PtsV2PayoutsPost400Response implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!in_array($this->container['reason'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -271,20 +237,11 @@ class PtsV2PayoutsPost400Response implements ArrayAccess
 
     /**
      * Sets reason
-     * @param string $reason The reason of the status.
+     * @param string $reason The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - INVALID_MERCHANT_CONFIGURATION  - INVALID_AMOUNT  - DEBIT_CARD_USEAGE_EXCEEDD_LIMIT
      * @return $this
      */
     public function setReason($reason)
     {
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!is_null($reason) && !in_array($reason, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reason', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['reason'] = $reason;
 
         return $this;
@@ -301,7 +258,7 @@ class PtsV2PayoutsPost400Response implements ArrayAccess
 
     /**
      * Sets message
-     * @param string $message The detail message related to the status and reason listed above. Possible value is:    - Your aggregator or acquirer is not accepting transactions from you at this time.   - Your aggregator or acquirer is not accepting this transaction.   - CyberSource declined the request because the credit card has expired. You might also receive this value if     the expiration date you provided does not match the date the issuing bank has on file.   - The bank declined the transaction.   - The merchant reference number for this authorization request matches the merchant reference number of     another authorization request that you sent within the past 15 minutes. Resend the request with a unique     merchant reference number.   - The credit card number did not pass CyberSource basic checks.   - Data provided is not consistent with the request. For example, you requested a product with negative cost.   - The request is missing a required field.
+     * @param string $message The detail message related to the status and reason listed above.
      * @return $this
      */
     public function setMessage($message)
@@ -313,7 +270,7 @@ class PtsV2PayoutsPost400Response implements ArrayAccess
 
     /**
      * Gets details
-     * @return \CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[]
+     * @return \CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[]
      */
     public function getDetails()
     {
@@ -322,7 +279,7 @@ class PtsV2PayoutsPost400Response implements ArrayAccess
 
     /**
      * Sets details
-     * @param \CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[] $details
+     * @param \CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[] $details
      * @return $this
      */
     public function setDetails($details)

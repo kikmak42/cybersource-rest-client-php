@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -35,6 +35,7 @@ use \ArrayAccess;
  * Ptsv2paymentsOrderInformationShippingDetails Class Doc Comment
  *
  * @category    Class
+ * @description Contains shipping information not related to address.
  * @package     CyberSource
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -197,7 +198,7 @@ class Ptsv2paymentsOrderInformationShippingDetails implements ArrayAccess
 
     /**
      * Sets giftWrap
-     * @param bool $giftWrap The description for this field is not available.
+     * @param bool $giftWrap Boolean that indicates whether the customer requested gift wrapping for this purchase. This field can contain one of the following values: - true: The customer requested gift wrapping. - false: The customer did not request gift wrapping.
      * @return $this
      */
     public function setGiftWrap($giftWrap)

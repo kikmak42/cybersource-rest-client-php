@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -126,48 +126,8 @@ class PtsV2PaymentsPost201ResponseErrorInformation implements ArrayAccess
         return self::$getters;
     }
 
-    const REASON_AVS_FAILED = 'AVS_FAILED';
-    const REASON_CONTACT_PROCESSOR = 'CONTACT_PROCESSOR';
-    const REASON_CV_FAILED = 'CV_FAILED';
-    const REASON_EXPIRED_CARD = 'EXPIRED_CARD';
-    const REASON_PROCESSOR_DECLINED = 'PROCESSOR_DECLINED';
-    const REASON_INSUFFICIENT_FUND = 'INSUFFICIENT_FUND';
-    const REASON_STOLEN_LOST_CARD = 'STOLEN_LOST_CARD';
-    const REASON_ISSUER_UNAVAILABLE = 'ISSUER_UNAVAILABLE';
-    const REASON_UNAUTHORIZED_CARD = 'UNAUTHORIZED_CARD';
-    const REASON_CVN_NOT_MATCH = 'CVN_NOT_MATCH';
-    const REASON_EXCEEDS_CREDIT_LIMIT = 'EXCEEDS_CREDIT_LIMIT';
-    const REASON_INVALID_CVN = 'INVALID_CVN';
-    const REASON_PAYMENT_REFUSED = 'PAYMENT_REFUSED';
-    const REASON_INVALID_ACCOUNT = 'INVALID_ACCOUNT';
-    const REASON_GENERAL_DECLINE = 'GENERAL_DECLINE';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getReasonAllowableValues()
-    {
-        return [
-            self::REASON_AVS_FAILED,
-            self::REASON_CONTACT_PROCESSOR,
-            self::REASON_CV_FAILED,
-            self::REASON_EXPIRED_CARD,
-            self::REASON_PROCESSOR_DECLINED,
-            self::REASON_INSUFFICIENT_FUND,
-            self::REASON_STOLEN_LOST_CARD,
-            self::REASON_ISSUER_UNAVAILABLE,
-            self::REASON_UNAUTHORIZED_CARD,
-            self::REASON_CVN_NOT_MATCH,
-            self::REASON_EXCEEDS_CREDIT_LIMIT,
-            self::REASON_INVALID_CVN,
-            self::REASON_PAYMENT_REFUSED,
-            self::REASON_INVALID_ACCOUNT,
-            self::REASON_GENERAL_DECLINE,
-        ];
-    }
     
 
     /**
@@ -196,14 +156,6 @@ class PtsV2PaymentsPost201ResponseErrorInformation implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!in_array($this->container['reason'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'reason', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         return $invalid_properties;
     }
 
@@ -216,10 +168,6 @@ class PtsV2PaymentsPost201ResponseErrorInformation implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!in_array($this->container['reason'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -235,20 +183,11 @@ class PtsV2PaymentsPost201ResponseErrorInformation implements ArrayAccess
 
     /**
      * Sets reason
-     * @param string $reason The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION
+     * @param string $reason The reason of the status.  Possible values:  - AVS_FAILED  - CONTACT_PROCESSOR  - EXPIRED_CARD  - PROCESSOR_DECLINED  - INSUFFICIENT_FUND  - STOLEN_LOST_CARD  - ISSUER_UNAVAILABLE  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - EXCEEDS_CREDIT_LIMIT  - INVALID_CVN  - DECLINED_CHECK  - BLACKLISTED_CUSTOMER  - SUSPENDED_ACCOUNT  - PAYMENT_REFUSED  - CV_FAILED  - INVALID_ACCOUNT  - GENERAL_DECLINE  - INVALID_MERCHANT_CONFIGURATION  - DECISION_PROFILE_REJECT  - SCORE_EXCEEDS_THRESHOLD  - PENDING_AUTHENTICATION
      * @return $this
      */
     public function setReason($reason)
     {
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!is_null($reason) && !in_array($reason, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reason', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['reason'] = $reason;
 
         return $this;

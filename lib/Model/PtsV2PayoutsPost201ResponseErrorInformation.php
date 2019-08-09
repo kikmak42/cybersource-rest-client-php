@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -56,7 +56,7 @@ class PtsV2PayoutsPost201ResponseErrorInformation implements ArrayAccess
     protected static $swaggerTypes = [
         'reason' => 'string',
         'message' => 'string',
-        'details' => '\CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[]'
+        'details' => '\CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[]'
     ];
 
     /**
@@ -126,40 +126,8 @@ class PtsV2PayoutsPost201ResponseErrorInformation implements ArrayAccess
         return self::$getters;
     }
 
-    const REASON_EXPIRED_CARD = 'EXPIRED_CARD';
-    const REASON_PROCESSOR_DECLINED = 'PROCESSOR_DECLINED';
-    const REASON_STOLEN_LOST_CARD = 'STOLEN_LOST_CARD';
-    const REASON_UNAUTHORIZED_CARD = 'UNAUTHORIZED_CARD';
-    const REASON_CVN_NOT_MATCH = 'CVN_NOT_MATCH';
-    const REASON_INVALID_CVN = 'INVALID_CVN';
-    const REASON_BLACKLISTED_CUSTOMER = 'BLACKLISTED_CUSTOMER';
-    const REASON_INVALID_ACCOUNT = 'INVALID_ACCOUNT';
-    const REASON_GENERAL_DECLINE = 'GENERAL_DECLINE';
-    const REASON_RISK_CONTROL_DECLINE = 'RISK_CONTROL_DECLINE';
-    const REASON_PROCESSOR_RISK_CONTROL_DECLINE = 'PROCESSOR_RISK_CONTROL_DECLINE';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getReasonAllowableValues()
-    {
-        return [
-            self::REASON_EXPIRED_CARD,
-            self::REASON_PROCESSOR_DECLINED,
-            self::REASON_STOLEN_LOST_CARD,
-            self::REASON_UNAUTHORIZED_CARD,
-            self::REASON_CVN_NOT_MATCH,
-            self::REASON_INVALID_CVN,
-            self::REASON_BLACKLISTED_CUSTOMER,
-            self::REASON_INVALID_ACCOUNT,
-            self::REASON_GENERAL_DECLINE,
-            self::REASON_RISK_CONTROL_DECLINE,
-            self::REASON_PROCESSOR_RISK_CONTROL_DECLINE,
-        ];
-    }
     
 
     /**
@@ -188,14 +156,6 @@ class PtsV2PayoutsPost201ResponseErrorInformation implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!in_array($this->container['reason'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'reason', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         return $invalid_properties;
     }
 
@@ -208,10 +168,6 @@ class PtsV2PayoutsPost201ResponseErrorInformation implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!in_array($this->container['reason'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -227,20 +183,11 @@ class PtsV2PayoutsPost201ResponseErrorInformation implements ArrayAccess
 
     /**
      * Sets reason
-     * @param string $reason The reason of the status.
+     * @param string $reason The reason of the status.  Possible values:  - EXPIRED_CARD  - PROCESSOR_DECLINED  - STOLEN_LOST_CARD  - UNAUTHORIZED_CARD  - CVN_NOT_MATCH  - INVALID_CVN  - BLACKLISTED_CUSTOMER  - INVALID_ACCOUNT  - GENERAL_DECLINE  - RISK_CONTROL_DECLINE  - PROCESSOR_RISK_CONTROL_DECLINE
      * @return $this
      */
     public function setReason($reason)
     {
-        $allowed_values = $this->getReasonAllowableValues();
-        if (!is_null($reason) && !in_array($reason, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'reason', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['reason'] = $reason;
 
         return $this;
@@ -269,7 +216,7 @@ class PtsV2PayoutsPost201ResponseErrorInformation implements ArrayAccess
 
     /**
      * Gets details
-     * @return \CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[]
+     * @return \CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[]
      */
     public function getDetails()
     {
@@ -278,7 +225,7 @@ class PtsV2PayoutsPost201ResponseErrorInformation implements ArrayAccess
 
     /**
      * Sets details
-     * @param \CyberSource\Model\PtsV2PayoutsPost201ResponseErrorInformationDetails[] $details
+     * @param \CyberSource\Model\PtsV2PaymentsPost201ResponseErrorInformationDetails[] $details
      * @return $this
      */
     public function setDetails($details)

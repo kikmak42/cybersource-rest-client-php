@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -150,6 +150,9 @@ class TokenizeRequest implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['keyId'] === null) {
+            $invalid_properties[] = "'keyId' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -162,6 +165,9 @@ class TokenizeRequest implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['keyId'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -177,7 +183,7 @@ class TokenizeRequest implements ArrayAccess
 
     /**
      * Sets keyId
-     * @param string $keyId Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples] (http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key.
+     * @param string $keyId Unique identifier for the generated token. This is obtained from the Generate Key request. See the [Java Script and Java examples](http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/Key/html) on how to import the key and encrypt using the imported key.
      * @return $this
      */
     public function setKeyId($keyId)

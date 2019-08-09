@@ -11,9 +11,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -184,7 +184,7 @@ class TssV2TransactionsGet200ResponseOrderInformationShippingDetails implements 
 
     /**
      * Sets giftWrap
-     * @param bool $giftWrap The description for this field is not available.
+     * @param bool $giftWrap Boolean that indicates whether the customer requested gift wrapping for this purchase. This field can contain one of the following values: - true: The customer requested gift wrapping. - false: The customer did not request gift wrapping.
      * @return $this
      */
     public function setGiftWrap($giftWrap)
@@ -205,7 +205,7 @@ class TssV2TransactionsGet200ResponseOrderInformationShippingDetails implements 
 
     /**
      * Sets shippingMethod
-     * @param string $shippingMethod Shipping method for the product. Possible values:   - lowcost: Lowest-cost service  - sameday: Courier or same-day service  - oneday: Next-day or overnight service  - twoday: Two-day service  - threeday: Three-day service  - pickup: Store pick-up  - other: Other shipping method  - none: No shipping method because product is a service or subscription
+     * @param string $shippingMethod Shipping method for the product. Possible values:   - `lowcost`: Lowest-cost service  - `sameday`: Courier or same-day service  - `oneday`: Next-day or overnight service  - `twoday`: Two-day service  - `threeday`: Three-day service  - `pickup`: Store pick-up  - `other`: Other shipping method  - `none`: No shipping method because product is a service or subscription
      * @return $this
      */
     public function setShippingMethod($shippingMethod)

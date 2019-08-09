@@ -10,9 +10,9 @@
  */
 
 /**
- * CyberSource Flex API
+ * CyberSource Merged Spec
  *
- * Simple PAN tokenization service
+ * All CyberSource API specs merged together. These are available at https://developer.cybersource.com/api/reference/api-reference.html
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -289,15 +289,15 @@ class ReportsApi
      *
      * Retrieve available reports
      *
-     * @param \DateTime $startTime Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX (required)
-     * @param \DateTime $endTime Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX (required)
-     * @param string $timeQueryType Specify time you would like to search (required)
+     * @param \DateTime $startTime Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) (required)
+     * @param \DateTime $endTime Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) (required)
+     * @param string $timeQueryType Specify time you would like to search  Valid values: - reportTimeFrame - executedTime (required)
      * @param string $organizationId Valid Cybersource Organization Id (optional)
-     * @param string $reportMimeType Valid Report Format (optional)
-     * @param string $reportFrequency Valid Report Frequency (optional)
+     * @param string $reportMimeType Valid Report Format  Valid values: - application/xml - text/csv (optional)
+     * @param string $reportFrequency Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC (optional)
      * @param string $reportName Valid Report Name (optional)
      * @param int $reportDefinitionId Valid Report Definition Id (optional)
-     * @param string $reportStatus Valid Report Status (optional)
+     * @param string $reportStatus Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA (optional)
      * @throws \CyberSource\ApiException on non-2xx response
      * @return \CyberSource\Model\ReportingV3ReportsGet200Response
      */
@@ -312,15 +312,15 @@ class ReportsApi
      *
      * Retrieve available reports
      *
-     * @param \DateTime $startTime Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX (required)
-     * @param \DateTime $endTime Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format. - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14   **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX (required)
-     * @param string $timeQueryType Specify time you would like to search (required)
+     * @param \DateTime $startTime Valid report Start Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) (required)
+     * @param \DateTime $endTime Valid report End Time in **ISO 8601 format** Please refer the following link to know more about ISO 8601 format.[Rfc Date Format](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)  **Example date format:**   - yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ (e.g. 2018-01-01T00:00:00.000Z) (required)
+     * @param string $timeQueryType Specify time you would like to search  Valid values: - reportTimeFrame - executedTime (required)
      * @param string $organizationId Valid Cybersource Organization Id (optional)
-     * @param string $reportMimeType Valid Report Format (optional)
-     * @param string $reportFrequency Valid Report Frequency (optional)
+     * @param string $reportMimeType Valid Report Format  Valid values: - application/xml - text/csv (optional)
+     * @param string $reportFrequency Valid Report Frequency  Valid values: - DAILY - WEEKLY - MONTHLY - ADHOC (optional)
      * @param string $reportName Valid Report Name (optional)
      * @param int $reportDefinitionId Valid Report Definition Id (optional)
-     * @param string $reportStatus Valid Report Status (optional)
+     * @param string $reportStatus Valid Report Status  Valid values: - COMPLETED - PENDING - QUEUED - RUNNING - ERROR - NO_DATA (optional)
      * @throws \CyberSource\ApiException on non-2xx response
      * @return array of \CyberSource\Model\ReportingV3ReportsGet200Response, HTTP status code, HTTP response headers (array of strings)
      */
